@@ -134,7 +134,7 @@ Cover
 
 Callee
 ------
-console.log(arguments.callee.caller.toString());
+	console.log(arguments.callee.caller.toString());
 
 Two column layout
 ------------------
