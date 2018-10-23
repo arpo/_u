@@ -142,4 +142,46 @@ _u = {
 		val = val.replace(/^\s+|\s+$/gm, '');
 		return val;
 	},
+	stringCast: => (s) {
+		if (typeof s !== 'string') {
+			return s;
+		}
+
+		const check = function (s) {
+			if (s.toLowerCase() === 'true') {
+				return true;
+			}
+			if (s.toLowerCase() === 'false') {
+				return false;
+			}
+			if (!isNaN(s.replace(',', '.'))) {
+				s = s.replace(',', '.');
+				if (s.indexOf('.')) {
+					return parseFloat(s);
+				}
+				return parseInt(s);
+			}
+			return s;
+		};
+
+		if (s === '') {
+			return '';
+		}
+
+		if (s.indexOf('{') === -1) {
+			return check(s);
+		}
+
+		try {
+			const o = JSON.parse(s);
+			if (o && typeof o === 'object' && o !== null) {
+				return o;
+			}
+		} catch (e) {
+			check(s);
+		}
+	},
+	prettyJSON: (jsObj) => {
+		JSON.stringify(jsObj, null, "\t");
+	},
 };
