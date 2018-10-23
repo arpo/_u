@@ -88,7 +88,7 @@ Class and sub class
 
 Trace
 -----
-	https://gitcdn.link/repo/arpo/trace.js/master/trace.min.js
+	<script type="text/javascript" src="https://gitcdn.link/repo/arpo/trace.js/master/trace.min.js"></script>
 	trace('Foo', 'bar')
 
 Center HV
