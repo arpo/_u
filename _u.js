@@ -142,7 +142,7 @@ _u = {
 		val = val.replace(/^\s+|\s+$/gm, '');
 		return val;
 	},
-	stringCast: => (s) {
+	stringCast: (s) => {
 		if (typeof s !== 'string') {
 			return s;
 		}
